@@ -6,13 +6,10 @@ import javax.persistence.*;
 @Table(name = "cars")
 public class Car {
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private User user;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    private Long id;
 
     @Column(name = "model")
     private String model;
@@ -24,8 +21,17 @@ public class Car {
         this.series = series;
     }
     public String getModel (){ return model;}
-    public String setModel () {return this.model;}
+    public void setModel (String model) {this.model = model;}
     public int getSeries () { return series;}
-    public int setSeries() {return series;}
+    public void setSeries(int series) { this.series = series;}
+    public long getId(){return id;}
+    public void setId(long id){this.id = id;}
+    @Override
+    public String toString() {
+        return "Car: " +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", series=" + series;
+    }
     }
 

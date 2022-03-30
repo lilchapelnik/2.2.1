@@ -15,11 +15,11 @@ public class User {
    @JoinColumn(name = "carUser")
    private Car car;
    public Car getCar(){
-      return car;
+      return this.car;
    }
 
-   public Car setCar(Car car){
-      return this.car;
+   public void setCar(Car car){
+       this.car = car;
    }
 
 
